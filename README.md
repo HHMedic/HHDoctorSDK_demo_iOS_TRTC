@@ -33,13 +33,13 @@
            [6.2. 饿了么购药配置](#62-加入)
       
       * [7. 其他配置](#6-其他配置)
-         
+        
          * [7.1. APNs](#61-apns)
          * [7.2. Background Modes](#62-background-modes)
          * [7.3. 扩展参数](#63-extension-params)
          
       * [问题说明](#问题说明)
-         
+        
          * [支付宝 SDK 冲突](#支付宝-sdk-冲突)
          * [swift 4.1](#swift-41)
          
@@ -353,8 +353,4 @@ xxx target -> Capabilities -> Background Modes -> 勾选 Audio，Airplay and Pic
 let option = HHSDKOptions(productId: "3000", isDebug: true, isDevelop: true)
 option.asyncLogin = false
 option.mExtension = ""
-
 ```
-
-
-
