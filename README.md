@@ -1,4 +1,4 @@
-# HHVDoctorSDK 接入说明
+
 
 <p align="right">
 北京和缓医疗科技有限公司<br/>
@@ -29,6 +29,8 @@
       * [6. 信息流](#6-信息流)
       
            [6.1. 跳转信息流](#61-加入)
+      
+           [6.2. 饿了么购药配置](#62-加入)
       
       * [7. 其他配置](#6-其他配置)
          
@@ -311,11 +313,15 @@ HHLocation.default.startLocation(lng: "116.431941", lat: "39.940199") /// 此为
 
 在饿了么购药过程中，会涉及到微信支付和支付宝支付。开发者需在自己的项目主Target中配置对应的回调scheme。
 
-![image-20201117105327060](/Users/chengyanfang/Library/Application Support/typora-user-images/image-20201117105327060.png)
+分别为，具体可参照demo里的配置
 
-![image-20201117105344490](/Users/chengyanfang/Library/Application Support/typora-user-images/image-20201117105344490.png)
+```
+1. identifier : eleme  URL Schemes : cash.tb.ele.me
+2. identifier : none   URL Schemes : HHPay
+3. identifier : none   URL Schemes : alipays
+```
 
-![image-20201117105355509](/Users/chengyanfang/Library/Application Support/typora-user-images/image-20201117105355509.png)
+
 
 ## 7. 其他配置
 
@@ -351,16 +357,4 @@ option.mExtension = ""
 ```
 
 
-## 问题说明
 
-### 支付宝 SDK 冲突
-若出现UTDID冲突错误,请切换支付宝 SDK 到无UTDID版本.
-[官方说明](https://docs.open.alipay.com/54/104509/)
-
-
-### swift 4.1
-master 分支已经支持 swift4.2, 如果需要支持 swift4.1, 请切换到对应分支 `swift4.1`
-
-```
-pod 'HHDoctorSDK', :git => "http://code.hh-medic.com/hh_public/HHDoctorSDK.ios.git", :branch => 'swift4.1'
-```
