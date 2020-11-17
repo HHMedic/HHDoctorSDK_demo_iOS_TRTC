@@ -8,23 +8,36 @@
 
    * [HHDoctorSDK 接入说明](#hhdoctorsdk-接入说明)
       * [0. 更新日志](#0-更新日志)
+      
       * [1. 集成方式](#1-集成方式)
          * [1.1. 手动集成](#11-手动集成)
          * [1.2. 自动集成（推荐）](#12-自动集成推荐)
          * [1.3. 调用规则](#13-调用规则)
+         
       * [2. 初始化](#2-初始化)
+      
       * [3. 登录账户](#3-登录账户)
          * [3.1. 登录](#31-登录)
          * [3.2. 登出](#32-登出)
+         
       * [4. 视频呼叫](#4-视频呼叫)
+      
       * [5. 代理(delegate)(可选)](#5-代理delegate可选)
          * [5.1. 加入](#51-加入)
          * [5.2. 移除](#52-移除)
-      * [6. 其他配置](#6-其他配置)
-         * [6.1. APNs](#61-apns)
-         * [6.2. Background Modes](#62-background-modes)
-         * [6.3. 扩展参数](#63-extension-params)
+         
+      * [6. 信息流](#6-信息流)
+      
+           [6.1. 跳转信息流](#61-加入)
+      
+      * [7. 其他配置](#6-其他配置)
+         
+         * [7.1. APNs](#61-apns)
+         * [7.2. Background Modes](#62-background-modes)
+         * [7.3. 扩展参数](#63-extension-params)
+         
       * [问题说明](#问题说明)
+         
          * [支付宝 SDK 冲突](#支付宝-sdk-冲突)
          * [swift 4.1](#swift-41)
          
@@ -33,6 +46,7 @@
 > 3.0.6
 
  - HHMVideoDelegate增加getChatParentView(_ view : UIView)，以便开发者在呼叫页面添加自定义view
+ - 增加跳转信息流的接口
 
 > 2.0.2
 
@@ -273,10 +287,39 @@ HHMSDK.default.add(delegate: self)
 HHMSDK.default.remove(delegate: self)
 ```
 
+## 6. 信息流
 
-## 6. 其他配置
 
-### 6.1. APNs
+
+### 6.1.  跳转信息流
+
+```
+HHMSDK.default.skipChatHome()
+```
+
+
+
+### 6.2.  饿了么购药
+
+正常情况下呼叫完成后，如有必要，医生会发送药卡，如需医生发送饿了么药卡，需在呼叫之前调用发送本地定位的接口。
+
+如需关掉该功能只需发送(0,0)的坐标。
+
+```
+HHLocation.default.startLocation(lng: "116.431941", lat: "39.940199") /// 此为测试坐标，需替换为用户本地的坐标
+```
+
+在饿了么购药过程中，会涉及到微信支付和支付宝支付。开发者需在自己的项目主Target中配置对应的回调scheme。
+
+![image-20201117105327060](/Users/chengyanfang/Library/Application Support/typora-user-images/image-20201117105327060.png)
+
+![image-20201117105344490](/Users/chengyanfang/Library/Application Support/typora-user-images/image-20201117105344490.png)
+
+![image-20201117105355509](/Users/chengyanfang/Library/Application Support/typora-user-images/image-20201117105355509.png)
+
+## 7. 其他配置
+
+### 7.1. APNs
 
 在 appDelegate 中向 SDK 传入 deviceToken 即可。
 
@@ -288,7 +331,7 @@ func application(_ application: UIApplication, didRegisterForRemoteNotifications
 
 *注意：需要上传 APNs 的 p12 文件，请联系我们上传。*
 
-### 6.2. Background Modes
+### 7.2. Background Modes
 
 为了支持用户压后台后音视频的正常使用，需要设置 Background Modes。具体设置如下：
 
@@ -296,7 +339,7 @@ func application(_ application: UIApplication, didRegisterForRemoteNotifications
 xxx target -> Capabilities -> Background Modes -> 勾选 Audio，Airplay and Picture in Picture
 ```
 
-### 6.3. 扩展参数
+### 7.3. 扩展参数
 
 为了支持收集渠道日志，SDK支持在初始化时传递自定义参数。
 
