@@ -342,10 +342,8 @@ xxx target -> Capabilities -> Background Modes -> 勾选 Audio，Airplay and Pic
 
 ### 7.3. 扩展参数
 
-为了支持收集渠道日志，SDK支持在初始化时传递自定义参数。
+为了支持收集渠道日志，SDK支持在初始化时传递自定义参数(支持JSON格式)。
 
 ```
-let option = HHSDKOptions(productId: "3000", isDebug: true, isDevelop: true)
-option.asyncLogin = false
-option.mExtension = ""
+HHSDKOptions.default.setCallExtension(callExtension: "xxx")
 ```
