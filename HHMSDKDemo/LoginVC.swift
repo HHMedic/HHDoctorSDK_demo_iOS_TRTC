@@ -95,7 +95,15 @@ class LoginVC: UIViewController {
     
     
     @IBAction func skipToHome(_ sender : UIButton) {
-        HHMSDK.default.skipChatHome()
+        if HHSDKOptions.default.mMessageOptions.isByPresent {
+            if let vc = HHMSDK.default.chatHomeVC() {
+                let nav = UINavigationController(rootViewController: vc)
+                nav.modalPresentationStyle = .fullScreen
+                self.present(nav, animated: true, completion: nil)
+            }
+        }else{
+            HHMSDK.default.skipChatHome()
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

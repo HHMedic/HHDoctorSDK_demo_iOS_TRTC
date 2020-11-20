@@ -11,7 +11,7 @@
         <!--LoginVC-->
         <scene sceneID="ZuK-Ew-nhs">
             <objects>
-                <viewController id="H9G-Cx-5aF" customClass="LoginVC" customModule="HHTMedicSDK" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="H9G-Cx-5aF" customClass="LoginVC" customModule="HHMSDKDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pvb-0q-YKi"/>
                         <viewControllerLayoutGuide type="bottom" id="N1D-F5-d1D"/>
@@ -29,7 +29,7 @@
                                 <color key="textColor" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="EC313F3198AF4F1972484E49E718D4DED7B294C6D4F4B9CB52C7CC1AF9E5140B" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tXq-br-C4i">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="FA0A5E533F3E828AF2FDBFB3220872163F0D04F68EA2608F6783B874E4F50EEF" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tXq-br-C4i">
                                 <rect key="frame" x="141" y="102.5" width="198" height="100"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -185,7 +185,7 @@
         <!--SettingVC-->
         <scene sceneID="pv9-J4-of0">
             <objects>
-                <viewController id="o3F-Mf-qyV" customClass="SettingVC" customModule="HHTMedicSDK" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="o3F-Mf-qyV" customClass="SettingVC" customModule="HHMSDKDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="B3S-wn-Uqm"/>
                         <viewControllerLayoutGuide type="bottom" id="YOS-cd-yhV"/>
@@ -198,7 +198,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingCell" id="Bgf-fW-wAR" customClass="SettingCell" customModule="HHTMedicSDK" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingCell" id="Bgf-fW-wAR" customClass="SettingCell" customModule="HHMSDKDemo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bgf-fW-wAR" id="Ied-xa-MDf">

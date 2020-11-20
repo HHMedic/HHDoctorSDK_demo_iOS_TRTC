@@ -69,6 +69,7 @@ class SettingVC : UIViewController {
             ("小助手默认昵称",false,false),
             ("信息流默认标题",false,false),
             ("开启定位",false,true),
+            ("是否通过Present弹出信息流",HHSDKOptions.default.mMessageOptions.isByPresent,true),
         ])
         sections.append(infoListSetting)
         
@@ -223,6 +224,9 @@ extension SettingVC {
                 
                 HHLocation.default.closeLocation()
             }
+        
+        case (2,6):
+            HHSDKOptions.default.mMessageOptions.isByPresent = isOpen
             
         case (3,0):
             HHSDKOptions.default.mUserCenterOptions.hideUserCenter = isOpen
