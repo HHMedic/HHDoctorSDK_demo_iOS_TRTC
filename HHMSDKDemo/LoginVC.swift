@@ -95,12 +95,18 @@ class LoginVC: UIViewController {
     
     
     @IBAction func skipToHome(_ sender : UIButton) {
+        
+        HHSDKOptions.default.mMessageOptions.isByPresent = true
+        
+        if let vc = HHMSDK.default.chatHomeVC() {
+            let nav = UINavigationController(rootViewController: vc)
+            nav.modalPresentationStyle = .fullScreen
+            self.present(nav, animated: true, completion: nil)
+        }
+        
+        
         if HHSDKOptions.default.mMessageOptions.isByPresent {
-            if let vc = HHMSDK.default.chatHomeVC() {
-                let nav = UINavigationController(rootViewController: vc)
-                nav.modalPresentationStyle = .fullScreen
-                self.present(nav, animated: true, completion: nil)
-            }
+            
         }else{
             HHMSDK.default.skipChatHome()
         }

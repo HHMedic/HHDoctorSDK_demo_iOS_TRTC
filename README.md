@@ -40,6 +40,13 @@
          
 ##  0. 更新日志
 
+
+> 3.0.6.120416  (2020-12-04)
+
+ - 删除项目中UIWebview的引用
+ - 适配不同版本的xcode
+
+
 > 3.0.6
 
  - HHMVideoDelegate增加getChatParentView(_ view : UIView)，以便开发者在呼叫页面添加自定义view
