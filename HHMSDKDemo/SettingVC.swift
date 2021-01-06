@@ -65,9 +65,9 @@ class SettingVC : UIViewController {
         let infoListSetting = ("信息流设置",[
             ("是否过滤总结卡片",HHSDKOptions.default.mMessageOptions.isFilterSummary,true),
             ("是否过滤药卡",HHSDKOptions.default.mMessageOptions.isFilterMedicinal,true),
-            ("小助手默认头像",false,false),
-            ("小助手默认昵称",false,false),
-            ("信息流默认标题",false,false),
+//            ("小助手默认头像",false,false),
+//            ("小助手默认昵称",false,false),
+//            ("信息流默认标题",false,false),
             ("开启定位",false,true),
             ("是否通过Present弹出信息流",HHSDKOptions.default.mMessageOptions.isByPresent,true),
         ])
@@ -201,22 +201,8 @@ extension SettingVC {
         case (2,1):
             HHSDKOptions.default.mMessageOptions.isFilterMedicinal = isOpen
             
-        case (2,5):
-            
-//            if isOpen {
-//                HHMSDK.default.aliPayHook = {(url,scheme,callback) in
-//                    let isOk = AlipaySDK.defaultService()?.payInterceptor(withUrl: url, fromScheme: scheme, callback: { (result) in
-//                        callback(result as? [String : Any] ?? ["test":""])
-//                    })
-//
-//
-//                    return isOk ?? false
-//                }
-//            }else{
-//
-//                HHMSDK.default.aliPayHook = nil
-//            }
-            
+        case (2,2):
+                        
             if isOpen {
                 HHLocation.default.startLocation(lng: "116.431941", lat: "39.940199")
                     
@@ -225,7 +211,7 @@ extension SettingVC {
                 HHLocation.default.closeLocation()
             }
         
-        case (2,6):
+        case (2,3):
             HHSDKOptions.default.mMessageOptions.isByPresent = isOpen
             
         case (3,0):
