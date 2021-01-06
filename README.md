@@ -7,8 +7,6 @@
 </p>
 [toc]
 
-
-
 ##  0. 更新日志
 
 
@@ -374,4 +372,3 @@ APP_PATH="${TARGET_BUILD_DIR}/${WRAPPER_NAME}"
  done
 ```
 
-3. 重新打包上传。
