@@ -213,6 +213,7 @@
 				95F31C3B20D0F8C9000BDAC4 /* Resources */,
 				2F2866C9626CA31B9760B5C4 /* [CP] Embed Pods Frameworks */,
 				F8948772789F21F588832CFB /* [CP] Copy Pods Resources */,
+				7E39885B25A5CA5E00A49ABE /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -230,7 +231,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0940;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = shmily;
 				TargetAttributes = {
 					95F31C3C20D0F8C9000BDAC4 = {
@@ -323,6 +324,23 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		7E39885B25A5CA5E00A49ABE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nAPP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"  \n\n# This script loops through the frameworks embedded in the application and  \n\n# removes unused architectures.  \n\n find \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK  \n do  \n FRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)  \n FRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"  \n echo \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"  \n\n EXTRACTED_ARCHS=()  \n\n for ARCH in $ARCHS  \n do  \n echo \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"  \n lipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"  \n EXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")  \n done  \n\n echo \"Merging extracted architectures: ${ARCHS}\"  \n lipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"  \n rm \"${EXTRACTED_ARCHS[@]}\"  \n\n echo \"Replacing original executable with thinned version\"  \n rm \"$FRAMEWORK_EXECUTABLE_PATH\"  \n mv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"  \n\n done\n";
 		};
 		F8948772789F21F588832CFB /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -417,6 +435,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -442,7 +461,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -479,6 +498,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -498,7 +518,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -520,9 +540,10 @@
 				CURRENT_PROJECT_VERSION = 2020.1113.13;
 				DEVELOPMENT_TEAM = SX7LU85BSD;
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 armv7";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/HHMSDKDemo/Res/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -550,9 +571,10 @@
 				CURRENT_PROJECT_VERSION = 2020.1113.13;
 				DEVELOPMENT_TEAM = SX7LU85BSD;
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 armv7";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/HHMSDKDemo/Res/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

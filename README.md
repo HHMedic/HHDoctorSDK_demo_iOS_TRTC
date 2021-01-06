@@ -5,52 +5,25 @@
 网址：https://www.hh-medic.com <br/>
 地址：北京市东城区东直门来福士7层
 </p>
+[toc]
 
-   * [HHDoctorSDK 接入说明](#hhdoctorsdk-接入说明)
-      * [0. 更新日志](#0-更新日志)
 
-      * [1. 集成方式](#1-集成方式)
-         * [1.1. 手动集成](#11-手动集成)
-         * [1.2. 自动集成（推荐）](#12-自动集成推荐)
-         * [1.3. 调用规则](#13-调用规则)
-         
-      * [2. 初始化](#2-初始化)
 
-      * [3. 登录账户](#3-登录账户)
-         * [3.1. 登录](#31-登录)
-         * [3.2. 登出](#32-登出)
-         
-      * [4. 视频呼叫](#4-视频呼叫)
-
-      * [5. 代理(delegate)(可选)](#5-代理delegate可选)
-         * [5.1. 加入](#51-加入)
-         * [5.2. 移除](#52-移除)
-         
-      * [6. 信息流](#6-信息流)
-
-           [6.1. 跳转信息流](#61-加入)
-
-           [6.2. 饿了么购药配置](#62-加入)
-
-      * [7. 其他配置](#6-其他配置)
-        
-         * [7.1. APNs](#61-apns)
-         * [7.2. Background Modes](#62-background-modes)
-         * [7.3. 扩展参数](#63-extension-params)
-         
 ##  0. 更新日志
 
 
-> 3.0.6.120416  (2020-12-04)
+> 3.0.8
 
- - 删除项目中UIWebview的引用
- - 适配不同版本的xcode
+ - 增加多人视频功能
+ - 适配模拟器运行
 
 
 > 3.0.6
 
  - HHMVideoDelegate增加getChatParentView(_ view : UIView)，以便开发者在呼叫页面添加自定义view
  - 增加跳转信息流的接口
+ - 删除项目中UIWebview的引用
+ - 适配不同版本的xcode
 
 > 2.0.2
 
@@ -354,3 +327,51 @@ xxx target -> Capabilities -> Background Modes -> 勾选 Audio，Airplay and Pic
 ```
 HHSDKOptions.default.setCallExtension(callExtension: "xxx")
 ```
+
+
+
+### 7.4. 上架 App Store 时，出现 x86_64, i386 架构错误该如何解决？
+
+该问题是由于 App Store 不支持 x86_64, i386 架构引起的，具体解决方法如下：
+
+1. 清空项目编译缓存：
+   选择【Product】>【clean】，按住Alt变成 clean build Folder...，等待操作完成。
+2. 剔除 App Store 不支持的 x86_64 和 i386 架构：
+   a. 选择【TARGETS】>【Build Phases】。
+   b. 单击加号，选择【New Run Script Phase】。
+   c. 添加如下代码：
+
+```
+APP_PATH="${TARGET_BUILD_DIR}/${WRAPPER_NAME}"  
+
+# This script loops through the frameworks embedded in the application and  
+
+# removes unused architectures.  
+
+ find "$APP_PATH" -name '*.framework' -type d | while read -r FRAMEWORK  
+ do  
+ FRAMEWORK_EXECUTABLE_NAME=$(defaults read "$FRAMEWORK/Info.plist" CFBundleExecutable)  
+ FRAMEWORK_EXECUTABLE_PATH="$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME"  
+ echo "Executable is $FRAMEWORK_EXECUTABLE_PATH"  
+
+ EXTRACTED_ARCHS=()  
+
+ for ARCH in $ARCHS  
+ do  
+ echo "Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME"  
+ lipo -extract "$ARCH" "$FRAMEWORK_EXECUTABLE_PATH" -o "$FRAMEWORK_EXECUTABLE_PATH-$ARCH"  
+ EXTRACTED_ARCHS+=("$FRAMEWORK_EXECUTABLE_PATH-$ARCH")  
+ done  
+
+ echo "Merging extracted architectures: ${ARCHS}"  
+ lipo -o "$FRAMEWORK_EXECUTABLE_PATH-merged" -create "${EXTRACTED_ARCHS[@]}"  
+ rm "${EXTRACTED_ARCHS[@]}"  
+
+ echo "Replacing original executable with thinned version"  
+ rm "$FRAMEWORK_EXECUTABLE_PATH"  
+ mv "$FRAMEWORK_EXECUTABLE_PATH-merged" "$FRAMEWORK_EXECUTABLE_PATH"  
+
+ done
+```
+
+3. 重新打包上传。
