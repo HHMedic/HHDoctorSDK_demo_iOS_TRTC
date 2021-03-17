@@ -76,9 +76,12 @@ class SettingVC : UIViewController {
         
         
         let userCenterSetting = ("个人中心设置",[
-            ("是否隐藏个人中心入口",HHSDKOptions.default.mUserCenterOptions.hideUserCenter,true),
-            ("是否展示激活码入口",HHSDKOptions.default.mUserCenterOptions.enableActivate,true),
-            ("是否展示档案库入口",HHSDKOptions.default.mUserCenterOptions.enableMedical,true),
+            ("隐藏个人中心入口",HHSDKOptions.default.mUserCenterOptions.hideUserCenter,true),
+            ("展示激活码入口",HHSDKOptions.default.mUserCenterOptions.enableActivate,true),
+            ("展示档案库入口",HHSDKOptions.default.mUserCenterOptions.enableMedical,true),
+            ("档案库可以增加成员",HHSDKOptions.default.mUserCenterOptions.enableAddMemberInDoc,true),
+            ("展示会员信息",HHSDKOptions.default.mUserCenterOptions.enableVipInfo,true),
+            ("展示购买VIP",HHSDKOptions.default.mUserCenterOptions.enableBuyService,true),
             
         ])
         sections.append(userCenterSetting)
@@ -222,6 +225,15 @@ extension SettingVC {
             
         case (3,2):
             HHSDKOptions.default.mUserCenterOptions.enableMedical = isOpen
+            
+        case (3,3):
+            HHSDKOptions.default.mUserCenterOptions.enableAddMemberInDoc = isOpen
+            
+        case (3,4):
+            HHSDKOptions.default.mUserCenterOptions.enableVipInfo = isOpen
+            
+        case (3,5):
+            HHSDKOptions.default.mUserCenterOptions.enableBuyService = isOpen
             
         default:
             break

@@ -29,7 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         
-        print(url)
+        if url.scheme == "hh-medic.com" {
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "WX_H5_PAY"), object: nil)
+            return true
+        }
    
         return true
     }
