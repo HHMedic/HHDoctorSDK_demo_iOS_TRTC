@@ -45,7 +45,7 @@
  HHDoctorSDK 提供两种集成方式：您既可以通过 CocoaPods 自动集成我们的 SDK，也可以通过手动下载 SDK, 然后添加到您的项目中。
 我们提供的下载地址：
 
- 我们提供了发布仓库: [HHVDoctorSDK](https://code.hh-medic.com/hh_public/h'hhhvDoctorSDK.ios)。
+ 我们提供了发布仓库: [HHVDoctorSDK](https://code.hh-medic.com/hh_public/hhvDoctorSDK.ios)。
  集成demo地址: [HHDoctorSDK_demo_iOS](https://github.com/HHMedic/HHDoctorSDK_demo_iOS)
 
 由于呼叫视频需要相机相册权限，需要在info.plist中添加对应的权限，否则会导致无法调用。
