@@ -46,7 +46,7 @@
 我们提供的下载地址：
 
  我们提供了发布仓库: [HHVDoctorSDK](https://code.hh-medic.com/hh_public/hhvDoctorSDK.ios)。
- 集成demo地址: [HHDoctorSDK_demo_iOS](https://github.com/HHMedic/HHDoctorSDK_demo_iOS)
+ 集成demo地址: [HHDoctorSDK_demo_iOS](https://code.hh-medic.com/hh_public/HHVDoctorSDK-Demo/tree/master)
 
 由于呼叫视频需要相机相册权限，需要在info.plist中添加对应的权限，否则会导致无法调用。
 
