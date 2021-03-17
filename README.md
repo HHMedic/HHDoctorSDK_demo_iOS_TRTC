@@ -11,6 +11,15 @@
 
 ##  0. 更新日志
 
+> 3.1.0
+
+ - 增加购买会员配置
+
+   ```
+   配置方式：
+   HHSDKOptions.default.mUserCenterOptions.enableBuyService // 默认不支持
+   ```
+
 
 > 3.0.8
 
@@ -330,7 +339,39 @@ HHSDKOptions.default.setCallExtension(callExtension: "xxx")
 
 
 
-### 7.4. 上架 App Store 时，出现 x86_64, i386 架构错误该如何解决？
+### 7.4. 支付跳转配置
+
+在使用SDK叮当购药或会员购买服务时，需要为项目配置支付跳转的scheme.
+
+配置步骤如下：
+
+Step1:
+
+在 Targets - Info - URL Types下增加：
+
+![image-20210317133123363](/Users/chengyanfang/Library/Application Support/typora-user-images/image-20210317133123363.png)
+
+![image-20210317133146190](/Users/chengyanfang/Library/Application Support/typora-user-images/image-20210317133146190.png)
+
+Step2:
+
+在AppDelegate下配置如下代码：
+
+```
+func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        if url.scheme == "hh-medic.com" {
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "WX_H5_PAY"), object: nil)
+            return true
+        }
+   
+        return true
+    }
+```
+
+
+
+### 7.5. 上架 App Store 时，出现 x86_64, i386 架构错误该如何解决？
 
 该问题是由于 App Store 不支持 x86_64, i386 架构引起的，具体解决方法如下：
 
