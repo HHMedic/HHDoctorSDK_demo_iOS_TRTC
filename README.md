@@ -345,17 +345,25 @@ HHSDKOptions.default.setCallExtension(callExtension: "xxx")
 
 配置步骤如下：
 
-Step1:
+Step1: 在 Targets - Info - URL Types下增加：
 
-在 Targets - Info - URL Types下增加：
+```
+URL1: 
+identifier: ''
+URL Schemes: hh-medic.com
 
-![image-20210317133123363](/Users/chengyanfang/Library/Application Support/typora-user-images/image-20210317133123363.png)
+URL2:
+identifier: ''
+URL Schemes: alipays
 
-![image-20210317133146190](/Users/chengyanfang/Library/Application Support/typora-user-images/image-20210317133146190.png)
+URL3:
+identifier: 'eleme'
+URL Schemes: cash.tb.ele.me
+```
 
-Step2:
 
-在AppDelegate下配置如下代码：
+
+Step2: 在AppDelegate下配置如下代码：
 
 ```
 func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
