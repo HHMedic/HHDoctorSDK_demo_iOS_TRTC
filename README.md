@@ -422,3 +422,7 @@ APP_PATH="${TARGET_BUILD_DIR}/${WRAPPER_NAME}"
 
  done
 ```
+
+### 7.6. 宿主app是基于Object-C时需要注意的问题
+
+1. 需勾选 Always embed swift standard libraries 为 YES 否则在低版本系统会闪退。

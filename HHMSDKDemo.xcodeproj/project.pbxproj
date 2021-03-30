@@ -519,7 +519,7 @@
 				CODE_SIGN_ENTITLEMENTS = HHMSDKDemo/HHMSDKDemo.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2020.1113.13;
+				CURRENT_PROJECT_VERSION = 2021.0317.13;
 				DEVELOPMENT_TEAM = SX7LU85BSD;
 				ENABLE_BITCODE = NO;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 armv7";
@@ -530,11 +530,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0.8;
+				MARKETING_VERSION = 3.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hh.hhvdoctorSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/chengyanfang/Documents/hh/iOS_SDK/SDKs/HHDoctorSDK_TX_demo_iOS/HHMSDKDemo/bridging-header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/chengyanfang/Documents/hh/iOS_SDK/SDKs/HHVDoctorSDK-Demo/HHMSDKDemo/bridging-header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -550,7 +550,7 @@
 				CODE_SIGN_ENTITLEMENTS = HHMSDKDemo/HHMSDKDemo.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2020.1113.13;
+				CURRENT_PROJECT_VERSION = 2021.0317.13;
 				DEVELOPMENT_TEAM = SX7LU85BSD;
 				ENABLE_BITCODE = NO;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 armv7";
@@ -561,12 +561,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0.8;
+				MARKETING_VERSION = 3.1.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hh.hhvdoctorSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/chengyanfang/Documents/hh/iOS_SDK/SDKs/HHDoctorSDK_TX_demo_iOS/HHMSDKDemo/bridging-header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/chengyanfang/Documents/hh/iOS_SDK/SDKs/HHVDoctorSDK-Demo/HHMSDKDemo/bridging-header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
