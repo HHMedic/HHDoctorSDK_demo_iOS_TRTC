@@ -21,7 +21,6 @@
    HHSDKOptions.default.mVideoOptions.isCloseCameraCall // 支持关闭摄像头呼叫   默认不支持
    ```
 
-
 > 3.1.0
 
  - 增加购买会员配置
