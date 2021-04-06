@@ -57,6 +57,9 @@ class SettingVC : UIViewController {
             ("是否可以选择多人视频",HHSDKOptions.default.mVideoOptions.allowMulti,true),
             ("是否可以增加成员",HHSDKOptions.default.mVideoOptions.allowAddMember,true),
             ("视频完成后是否有评价",HHSDKOptions.default.mVideoOptions.allowEvaluate,true),
+            ("呼叫扩展参数",false,false),
+            ("视频中开关摄像头",HHSDKOptions.default.mVideoOptions.enableCloseCamera,true),
+            ("关闭摄像头呼叫",HHSDKOptions.default.mVideoOptions.isCloseCameraCall,true),
         ])
         sections.append(videoSetting)
         
@@ -197,6 +200,12 @@ extension SettingVC {
             
         case (1,4):
             HHSDKOptions.default.mVideoOptions.allowEvaluate = isOpen
+            
+        case (1,6):
+            HHSDKOptions.default.mVideoOptions.enableCloseCamera = isOpen
+            
+        case (1,7):
+            HHSDKOptions.default.mVideoOptions.isCloseCameraCall = isOpen
             
         case (2,0):
             HHSDKOptions.default.mMessageOptions.isFilterSummary = isOpen

@@ -11,6 +11,17 @@
 
 ##  0. 更新日志
 
+> 3.1.2
+
+ - 增加视频中开关本地摄像头的配置
+
+   ```
+   配置方式：
+   HHSDKOptions.default.mVideoOptions.enableCloseCamera // 视频中支持开关摄像头 默认不支持
+   HHSDKOptions.default.mVideoOptions.isCloseCameraCall // 支持关闭摄像头呼叫   默认不支持
+   ```
+
+
 > 3.1.0
 
  - 增加购买会员配置
