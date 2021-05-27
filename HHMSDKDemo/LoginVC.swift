@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import hhVDoctorSDK
+import HHMedicSDK
 
 class LoginVC: UIViewController {
 
@@ -42,7 +42,7 @@ class LoginVC: UIViewController {
     
     @IBAction func doLogin(_ sender: UIButton) {
         
-        HMDefaultOpt.productId = mPidText.text ?? ""
+        HHSDKOptions.default.productId = mPidText.text ?? ""
         
         self.mDescLbl.text = "登录中。。。。。"
         if let userToken = mTextView.text {
@@ -96,15 +96,7 @@ class LoginVC: UIViewController {
     
     @IBAction func skipToHome(_ sender : UIButton) {
         
-        if HHSDKOptions.default.mMessageOptions.isByPresent {
-            if let vc = HHMSDK.default.chatHomeVC() {
-                let nav = UINavigationController(rootViewController: vc)
-                nav.modalPresentationStyle = .fullScreen
-                self.present(nav, animated: true, completion: nil)
-            }
-        }else{
-            HHMSDK.default.skipChatHome()
-        }
+        HHMSDK.default.skipChatHome(skipType: .present, vc: self)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

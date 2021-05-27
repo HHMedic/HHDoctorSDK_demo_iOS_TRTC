@@ -7,7 +7,9 @@
 //
 
 import UIKit
-import hhVDoctorSDK
+import HHMedicSDK
+
+var isByPresent = false
 
 class SettingVC : UIViewController {
     
@@ -68,11 +70,11 @@ class SettingVC : UIViewController {
         let infoListSetting = ("信息流设置",[
             ("是否过滤总结卡片",HHSDKOptions.default.mMessageOptions.isFilterSummary,true),
             ("是否过滤药卡",HHSDKOptions.default.mMessageOptions.isFilterMedicinal,true),
-//            ("小助手默认头像",false,false),
-//            ("小助手默认昵称",false,false),
-//            ("信息流默认标题",false,false),
+            ("小助手默认头像",false,false),
+            ("小助手默认昵称",false,false),
+            ("信息流默认标题",false,false),
             ("开启定位",false,true),
-            ("是否通过Present弹出信息流",HHSDKOptions.default.mMessageOptions.isByPresent,true),
+            ("是否通过Present弹出信息流",isByPresent,true),
         ])
         sections.append(infoListSetting)
         
@@ -140,6 +142,14 @@ extension SettingVC : UITableViewDelegate,UITableViewDataSource {
                 HHSDKOptions.default.mExtension = info
             }
             
+            break
+        
+        case (1,5):
+
+            showEditAlter(title: "呼叫扩展参数",info: HHSDKOptions.default.mVideoOptions.mCallExtension) { info in
+                HHSDKOptions.default.mVideoOptions.mCallExtension = info
+            }
+
             break
             
         case (2,2):
@@ -213,18 +223,19 @@ extension SettingVC {
         case (2,1):
             HHSDKOptions.default.mMessageOptions.isFilterMedicinal = isOpen
             
-        case (2,2):
+        case (2,5):
                         
             if isOpen {
-                HHLocation.default.startLocation(lng: "116.431941", lat: "39.940199")
-                    
-            }else{
                 
-                HHLocation.default.closeLocation()
+                HHMSDK.default.setLocation(lng: "116.431941", lat: "39.940199")
+
+            }else{
+
+                HHMSDK.default.setLocation(lng: "0", lat: "0")
             }
         
-        case (2,3):
-            HHSDKOptions.default.mMessageOptions.isByPresent = isOpen
+        case (2,6):
+            isByPresent = isOpen
             
         case (3,0):
             HHSDKOptions.default.mUserCenterOptions.hideUserCenter = isOpen
