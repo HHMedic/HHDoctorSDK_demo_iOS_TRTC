@@ -71,7 +71,7 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func doCallDoctor(_ sender: UIButton) {
-        HHMSDK.default.startCall(.adult)
+        HHMSDK.default.startNewCall(100000012)
     }
     
     func doFetchLog(_ sender: UIBarButtonItem) {
@@ -80,7 +80,7 @@ class LoginVC: UIViewController {
     
 
     @IBAction func doSelectMem(_ sender: UIButton) {
-        HHMSDK.default.startMemberCall()
+        HHMSDK.default.startMemberCall(needSelectMember: false)
     }
     
     

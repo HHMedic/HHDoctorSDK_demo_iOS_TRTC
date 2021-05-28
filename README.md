@@ -191,38 +191,53 @@ HHMSDK.default.logout()
 ```
 
 ## 4. 视频呼叫
-根据实际场景的不同，可以进行成人、儿童方向的向医生咨询。
-
 * 原型
 
 ```swift
 public class HHMSDK : NSObject {
 
-    /// 主叫发起通话
+    /// 发起呼叫
     ///
-    /// - Parameter type: 呼叫类型
-    public func startCall(_ type: HHMedicSDK.HHCallType)
+    /// - Parameters:uuid: 呼叫人uuid
+    @objc public func startNewCall(_ uuid: Int)
 }
 ```
 
 * 调用示例
 
 ```swift
-// 咨询儿童问题
-HHMSDK.default.startCall(.child)
-
-// 咨询成人问题
-HHMSDK.default.startCall(.adult)
+// 呼叫
+HHMSDK.default.startNewCall(100000012)
 ```
 
-HHCallType 枚举列表
 
-值 | 说明
---------- | -------------
-child | 儿童
-adult | 成人
 
-## 5. 代理(delegate)(可选)
+## 5. 指定成员呼叫
+
+* 原型
+
+```swift
+public class HHMSDK : NSObject {
+
+    /// 指定人发起呼叫(带 UI)
+    ///
+    /// - Parameters:needSelectMember 是否需要显示选成员弹窗，默认需要
+    @objc dynamic public func startMemberCall(needSelectMember: Bool = true)
+}
+```
+
+* 调用示例
+
+```swift
+HHMSDK.default.startMemberCall()
+```
+
+
+
+
+
+## 6. 代理(delegate)(可选)
+
 代理主要用于视频过程中的状态反馈。如果不需要状态反馈，可以不考虑该代理。
 所有的代理方法都是可选的，可以根据自己的实际需要实现不同的代理方法。
 
@@ -270,24 +285,24 @@ public protocol HHMVideoDelegate : NSObjectProtocol {
 }
 ```
 
-### 5.1. 加入
+### 6.1. 加入
 代理支持同时设置多个。
 
 ```swift
 HHMSDK.default.add(delegate: self)
 ```
 
-### 5.2. 移除
+### 6.2. 移除
 
 ```swift
 HHMSDK.default.remove(delegate: self)
 ```
 
-## 6. 信息流
+## 7. 信息流
 
 
 
-### 6.1.  跳转信息流
+### 7.1.  跳转信息流
 
 ```
 HHMSDK.default.skipChatHome()
@@ -295,7 +310,7 @@ HHMSDK.default.skipChatHome()
 
 
 
-### 6.2.  饿了么购药
+### 7.2.  饿了么购药
 
 正常情况下呼叫完成后，如有必要，医生会发送药卡，如需医生发送饿了么药卡，需在呼叫之前调用发送本地定位的接口。
 
@@ -317,9 +332,9 @@ HHLocation.default.startLocation(lng: "116.431941", lat: "39.940199") /// 此为
 
 
 
-## 7. 其他配置
+## 8. 其他配置
 
-### 7.1. APNs
+### 8.1. APNs
 
 在 appDelegate 中向 SDK 传入 deviceToken 即可。
 
@@ -331,7 +346,7 @@ func application(_ application: UIApplication, didRegisterForRemoteNotifications
 
 *注意：需要上传 APNs 的 p12 文件，请联系我们上传。*
 
-### 7.2. Background Modes
+### 8.2. Background Modes
 
 为了支持用户压后台后音视频的正常使用，需要设置 Background Modes。具体设置如下：
 
@@ -339,7 +354,7 @@ func application(_ application: UIApplication, didRegisterForRemoteNotifications
 xxx target -> Capabilities -> Background Modes -> 勾选 Audio，Airplay and Picture in Picture
 ```
 
-### 7.3. 扩展参数
+### 8.3. 扩展参数
 
 为了支持收集渠道日志，SDK支持在初始化时传递自定义参数(支持JSON格式)。
 
@@ -349,7 +364,7 @@ HHSDKOptions.default.setCallExtension(callExtension: "xxx")
 
 
 
-### 7.4. 支付跳转配置
+### 8.4. 支付跳转配置
 
 在使用SDK叮当购药或会员购买服务时，需要为项目配置支付跳转的scheme.
 
@@ -389,7 +404,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 
 
 
-### 7.5. 上架 App Store 时，出现 x86_64, i386 架构错误该如何解决？
+### 8.5. 上架 App Store 时，出现 x86_64, i386 架构错误该如何解决？
 
 该问题是由于 App Store 不支持 x86_64, i386 架构引起的，具体解决方法如下：
 
@@ -433,6 +448,6 @@ APP_PATH="${TARGET_BUILD_DIR}/${WRAPPER_NAME}"
  done
 ```
 
-### 7.6. 宿主app是基于Object-C时需要注意的问题
+### 8.6. 宿主app是基于Object-C时需要注意的问题
 
 1. 需勾选 Always embed swift standard libraries 为 YES 否则在低版本系统会闪退。
