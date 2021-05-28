@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6AF58710F6F4704A0DDB54DA /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		6AF58710F6F4704A0DDB54DA /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
 		7ECF5CBC25627CCE001B60C2 /* PreviewTransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECF5CA725627CCE001B60C2 /* PreviewTransitionViewController.swift */; };
 		7ECF5CBD25627CCE001B60C2 /* WebviewPreviewViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECF5CA825627CCE001B60C2 /* WebviewPreviewViewContoller.swift */; };
 		7ECF5CBE25627CCE001B60C2 /* FileListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECF5CA925627CCE001B60C2 /* FileListViewController.swift */; };
@@ -86,7 +86,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95844E312153A4E800D836F1 /* CoreMotion.framework in Frameworks */,
-				6AF58710F6F4704A0DDB54DA /* (null) in Frameworks */,
+				6AF58710F6F4704A0DDB54DA /* BuildFile in Frameworks */,
 				8CDC226071D1655432DC3BCC /* Pods_HHMSDKDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,7 +212,7 @@
 				95F31C3A20D0F8C9000BDAC4 /* Frameworks */,
 				95F31C3B20D0F8C9000BDAC4 /* Resources */,
 				2F2866C9626CA31B9760B5C4 /* [CP] Embed Pods Frameworks */,
-				411014B350F1625B72059E55 /* [CP] Copy Pods Resources */,
+				0476C5877D00AD85F9EB16C5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -289,6 +289,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0476C5877D00AD85F9EB16C5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HHMSDKDemo/Pods-HHMSDKDemo-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HHMSDKDemo/Pods-HHMSDKDemo-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HHMSDKDemo/Pods-HHMSDKDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		2F2866C9626CA31B9760B5C4 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -322,23 +339,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		411014B350F1625B72059E55 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HHMSDKDemo/Pods-HHMSDKDemo-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HHMSDKDemo/Pods-HHMSDKDemo-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HHMSDKDemo/Pods-HHMSDKDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
