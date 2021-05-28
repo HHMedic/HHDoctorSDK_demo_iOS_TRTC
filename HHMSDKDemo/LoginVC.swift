@@ -71,7 +71,9 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func doCallDoctor(_ sender: UIButton) {
-        HHMSDK.default.startNewCall(100000012)
+        showEditAlter(title: "输入呼叫token",info: "") { info in
+            HHMSDK.default.call(userToken: info)
+        }
     }
     
     func doFetchLog(_ sender: UIBarButtonItem) {
@@ -125,6 +127,37 @@ class LoginVC: UIViewController {
             }
         }
     }
+    
+    func showEditAlter(title : String , info : String , callback : @escaping ((String)->Void)) {
+            
+            let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+            
+            alert.addTextField { (textField) in
+                textField.text = info
+            }
+            
+            let cancelAction = UIAlertAction(title: "取消", style: .cancel) { _ in
+                
+                alert.dismiss(animated: true, completion: nil)
+            }
+            
+            cancelAction.setValue(UIColor.gray, forKey: "titleTextColor")
+            
+            alert.addAction(cancelAction)
+
+            alert.addAction(UIAlertAction(title: "确定", style: .default, handler: {(_) in
+                
+                let info = alert.textFields?.first?.text
+                
+                guard info?.count ?? 0 > 0 else { return }
+                
+                callback(info ?? "")
+                
+            }))
+
+            present(alert, animated: true, completion: nil)
+            
+        }
     
 }
 

@@ -212,7 +212,7 @@
 				95F31C3A20D0F8C9000BDAC4 /* Frameworks */,
 				95F31C3B20D0F8C9000BDAC4 /* Resources */,
 				2F2866C9626CA31B9760B5C4 /* [CP] Embed Pods Frameworks */,
-				F8948772789F21F588832CFB /* [CP] Copy Pods Resources */,
+				411014B350F1625B72059E55 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -324,7 +324,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F8948772789F21F588832CFB /* [CP] Copy Pods Resources */ = {
+		411014B350F1625B72059E55 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -519,7 +519,7 @@
 				CODE_SIGN_ENTITLEMENTS = HHMSDKDemo/HHMSDKDemo.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2021.0317.13;
+				CURRENT_PROJECT_VERSION = 2021.0528.13;
 				DEVELOPMENT_TEAM = SX7LU85BSD;
 				ENABLE_BITCODE = NO;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 armv7";
@@ -530,7 +530,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.1.0;
+				MARKETING_VERSION = 3.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hh.hhvdoctorSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -550,7 +550,7 @@
 				CODE_SIGN_ENTITLEMENTS = HHMSDKDemo/HHMSDKDemo.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2021.0317.13;
+				CURRENT_PROJECT_VERSION = 2021.0528.13;
 				DEVELOPMENT_TEAM = SX7LU85BSD;
 				ENABLE_BITCODE = NO;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 armv7";
@@ -561,7 +561,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.1.0;
+				MARKETING_VERSION = 3.1.2;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hh.hhvdoctorSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";

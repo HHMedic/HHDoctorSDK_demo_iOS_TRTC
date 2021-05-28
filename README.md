@@ -198,8 +198,8 @@ public class HHMSDK : NSObject {
 
     /// 发起呼叫
     ///
-    /// - Parameters:uuid: 呼叫人uuid
-    @objc public func startNewCall(_ uuid: Int)
+    /// - Parameters:呼叫人的userToken
+    @objc dynamic public func call(userToken: String)
 }
 ```
 
@@ -207,7 +207,7 @@ public class HHMSDK : NSObject {
 
 ```swift
 // 呼叫
-HHMSDK.default.startNewCall(100000012)
+HHMSDK.default.call("109CF62C95E7F58E2C0C129CAE48FC953F0D04F68EA2608F6783B874E4F50EEF")
 ```
 
 
