@@ -82,7 +82,7 @@ class LoginVC: UIViewController {
     
 
     @IBAction func doSelectMem(_ sender: UIButton) {
-        HHMSDK.default.startMemberCall(needSelectMember: false)
+        HHMSDK.default.startMemberCall()
     }
     
     
