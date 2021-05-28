@@ -198,7 +198,7 @@ public class HHMSDK : NSObject {
 
     /// 发起呼叫
     ///
-    /// - Parameters:呼叫人的userToken
+    /// - Parameters:咨询人的userToken
     @objc dynamic public func call(userToken: String)
 }
 ```
