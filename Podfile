@@ -8,7 +8,7 @@ target 'HHMSDKDemo' do
   project './HHMSDKDemo.xcodeproj'
   pod 'SVProgressHUD'
   pod 'SnapKit'
-  pod 'HHVDoctorSDK', :git => "http://code.hh-medic.com/hh_public/hhvDoctorSDK.ios.git"
+  pod 'HHVDoctorSDK', :git => "http://code.hh-medic.com/hh_public/hhvDoctorSDK.ios.git", :branch => 'feature/3.1.4'
 
 end
 

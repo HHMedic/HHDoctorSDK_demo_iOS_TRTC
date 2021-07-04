@@ -11,6 +11,21 @@
 
 ##  0. 更新日志
 
+
+> 3.1.4
+
+ - 将Module名由 ‘hhVDoctorSDK’ 改为 ‘HHMedicSDK’
+ - 去除 'HHSDKOptions.default.mMessageOptions.isByPresent' 配置，改为如下方式
+
+    ```
+    /// 跳转信息流首页
+    ///
+    /// - Parameters:
+    ///   - skipType: 跳转类型 push 或 present
+    ///   - vc: 当`skipType`为push时，需要传入UIViewController
+    @objc public func skipChatHome(skipType: HHMedicSDK.SkipType = .push, vc: UIViewController? = nil)
+    ```
+
 > 3.1.2
 
  - 增加视频中开关本地摄像头的配置

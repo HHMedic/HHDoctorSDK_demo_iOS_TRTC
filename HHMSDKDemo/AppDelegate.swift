@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import hhVDoctorSDK
+import HHMedicSDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,9 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let option = HHSDKOptions(productId: "3000", isDebug: true, isDevelop: true)
         
-        option.logCallback = {
-            print($0)
-        }
+//        option.logCallback = {
+//            print($0)
+//        }
         HHMSDK.default.start(option: option)
 
         return true
