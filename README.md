@@ -149,12 +149,12 @@ HHMSDK.default.start(option: option)
 ```swift
 public class HHMSDK : NSObject {
 
-    /// 登录账号
+    /// 登录账户
     ///
     /// - Parameters:
-    ///   - uuid: 用户的 唯一标志符
-    ///   - completion: 完成回调
-    public func login(uuid: Int, completion: @escaping HHMedicSDK.HHLoginHandler)
+    ///   - userToken: 用户的唯一标志
+    ///   - completion: 完成的回调
+    @objc  public func login(userToken: String, completion: @escaping HHLoginHandler) {
 }
 ```
 
@@ -162,9 +162,11 @@ public class HHMSDK : NSObject {
 
 ```swift
 // 登录
-HHMSDK.default.login(uuid: 100001531) { (error) in
-    if let aError = error {
+HHMSDK.default.login(userToken: "token") { [weak self] in
+    if let aError = $0 {
         print("登录错误: " + aError.localizedDescription)
+    } else {
+        print("登录成功")
     }
 }
 ```
