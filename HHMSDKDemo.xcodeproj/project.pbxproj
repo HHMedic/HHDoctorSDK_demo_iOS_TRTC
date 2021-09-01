@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6AF58710F6F4704A0DDB54DA /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		6AF58710F6F4704A0DDB54DA /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		7ECF5CBC25627CCE001B60C2 /* PreviewTransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECF5CA725627CCE001B60C2 /* PreviewTransitionViewController.swift */; };
 		7ECF5CBD25627CCE001B60C2 /* WebviewPreviewViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECF5CA825627CCE001B60C2 /* WebviewPreviewViewContoller.swift */; };
 		7ECF5CBE25627CCE001B60C2 /* FileListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECF5CA925627CCE001B60C2 /* FileListViewController.swift */; };
@@ -86,7 +86,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95844E312153A4E800D836F1 /* CoreMotion.framework in Frameworks */,
-				6AF58710F6F4704A0DDB54DA /* BuildFile in Frameworks */,
+				6AF58710F6F4704A0DDB54DA /* (null) in Frameworks */,
 				8CDC226071D1655432DC3BCC /* Pods_HHMSDKDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -534,7 +534,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hh.hhvdoctorSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/chengyanfang/Documents/hh/iOS_SDK/SDKs/HHVDoctorSDK-Demo/HHMSDKDemo/bridging-header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/HHMSDKDemo/bridging-header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -566,7 +566,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hh.hhvdoctorSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/chengyanfang/Documents/hh/iOS_SDK/SDKs/HHVDoctorSDK-Demo/HHMSDKDemo/bridging-header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/HHMSDKDemo/bridging-header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
