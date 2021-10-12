@@ -29,7 +29,8 @@ pod install
 
 ### 二、 初始化SDK
 
-```swift
+```
+swift
 let option = HHSDKOptions(isDebug: true, isDevelop: true)
 option.cerName = "2cDevTest"
 HHMSDK.default.start(option: option)
@@ -38,8 +39,7 @@ HHMSDK.default.start(option: option)
 ### 三、登录登出
 
 ```
-
-```swift
+swift
 // 登录
 HHMSDK.default.login(userToken: "token") { [weak self] in
     if let aError = $0 {
@@ -50,7 +50,8 @@ HHMSDK.default.login(userToken: "token") { [weak self] in
 }
 ```
 error 为登录错误信息，成功则为 nil。
-```swift
+```
+swift
 // 登出
 HHMSDK.default.logout()
 ```
