@@ -67,5 +67,4 @@ Demo
 https://github.com/HHMedic/HHDoctorSDK_demo_iOS_TRTC
 
 详细接入文档
-https://github.com/HHMedic/HHDoctorSDK_demo_Android/blob/main/Document.md
-
+https://github.com/HHMedic/HHDoctorSDK_demo_iOS_TRTC/blob/main/Document.md
