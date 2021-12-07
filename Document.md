@@ -311,7 +311,7 @@ HHMSDK.default.remove(delegate: self)
 ### 7.1.  跳转信息流
 
 ```
-HHMSDK.default.skipChatHome()
+HHMSDK.default.skipChatHome(skipType: .present, vc: self)
 ```
 
 
