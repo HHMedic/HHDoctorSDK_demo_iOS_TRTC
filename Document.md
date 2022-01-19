@@ -132,7 +132,6 @@ HHSDKOptions 选项参数列表
 productId|String|和缓分配的产品ID（必填）
 isDevelopment|Bool|服务器模式（测试/正式）
 isDebug|Bool|调试模式(是否打印日志)
-APNs|String |推送证书名（由和缓生成）
 hudManager| HHHUDable|自定义 progressHUD
 hudDisTime| Double|hud 自动消失时间
 
