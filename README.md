@@ -31,8 +31,7 @@ pod install
 
 ```
 swift
-let option = HHSDKOptions(isDebug: true, isDevelop: true)
-option.cerName = "2cDevTest"
+let option = HHSDKOptions(productId: sdkProductId, isDebug: true, isDevelop: true)
 HHMSDK.default.start(option: option)
 ```
 
@@ -59,7 +58,8 @@ HHMSDK.default.logout()
 ### 四、跳转首页（必须登录后）
 
 ```
-HHMSDK.default.skipChatHome()
+HHMSDK.default.skipChatHome(skipType: .present, vc: self)
+
 ```
 
 ### 五、Demo及详细文档
