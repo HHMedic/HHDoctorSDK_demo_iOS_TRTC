@@ -139,12 +139,7 @@ hudDisTime| Double|hud 自动消失时间
 调用示例
 
 ```swift
-let option = HHSDKOptions(isDebug: true, isDevelop: true)
-option.cerName = "2cDevTest"
-// let option = HHSDKOptions()
-// option.isDevelopment = true
-// option.isDebug = true
-// option.hudDisTime = 2
+let option = HHSDKOptions(productId: sdkProductId, isDebug: true, isDevelop: true)
 HHMSDK.default.start(option: option)
 ```
 
